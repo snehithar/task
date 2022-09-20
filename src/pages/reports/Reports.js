@@ -33,8 +33,6 @@ function Reports() {
                 <Col span={8}>
                     <SSCard title="Average in a family" method={averageCarNumber} name='averageCars' />
                 </Col>
-
-
                 <Col span={24}>
                     <Breakdown />
                 </Col>

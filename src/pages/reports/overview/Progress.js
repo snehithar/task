@@ -3,11 +3,7 @@ import { Card, Col, Progress, Row, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { progress } from '../../../redux/actionCreator/reportActionCreator';
-import { setData } from '../../../redux/actions/reportAction';
-import { driveTrain, fuelEmission } from '../../../service/db';
 import { round } from '../../../utils/helper';
-
-
 
 function ProgressC() {
     const dispatch = useDispatch()
@@ -26,7 +22,7 @@ function ProgressC() {
         })
     }, [targetables, fuel, drive])
     return (
-        <Card title={'Targetables : ' + (targetables|| '')}>
+        <Card title='Breakdown Fuel & Drive Train'>
             {
                 progress_loading ? <Spin /> : (
                     <> <Row>

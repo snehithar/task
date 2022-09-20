@@ -9,11 +9,13 @@ function GroupBreakdown() {
     const { progress_loading, adolescents, unlicenced, firstTimer, targetables } = useSelector(st => st.report)
 
     useEffect(() => {
+        let total = targetables + adolescents + unlicenced + firstTimer
         setState({
-            targetables,
-            adolescents: round(100 * adolescents / targetables, 2),
-            unlicenced: round(100 * unlicenced / targetables, 2),
-            firstTimer: round(100 * firstTimer / targetables, 2)
+            total,
+            adolescents: round(100 * adolescents / total, 2),
+            unlicenced: round(100 * unlicenced / total, 2),
+            firstTimer: round(100 * firstTimer / total, 2),
+            targetables: round(100 * targetables / total, 2)
         })
     }, [adolescents, unlicenced, firstTimer, targetables])
     return (
@@ -48,6 +50,17 @@ function GroupBreakdown() {
                             </Col>
                             <Col sm={15}>
                                 <Progress percent={state.firstTimer} status="active" strokeColor={{
+                                    from: '#108ee9',
+                                    to: '#87d068',
+                                }} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm={9}>
+                                Targetables
+                            </Col>
+                            <Col sm={15}>
+                                <Progress percent={state.targetables} status="active" strokeColor={{
                                     from: '#108ee9',
                                     to: '#87d068',
                                 }} />
