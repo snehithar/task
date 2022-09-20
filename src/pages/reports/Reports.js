@@ -1,10 +1,10 @@
 
 import { Row, Col } from 'antd';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import PlayerLayout from '../../components/layout/PlayerLayout';
 import { averageCarNumber, firstTimers, targetables, under18s, unLicenced } from '../../service/db';
 import Breakdown from './overview/Breakdown';
+import GroupBreakdown from './overview/GroupBreakdown';
 import ProgressC from './overview/Progress';
 import SSCard from './overview/SSCard';
 
@@ -24,12 +24,17 @@ function Reports() {
                 <Col span={6}>
                     <SSCard title="Targetables" method={targetables} name='targetables' />
                 </Col>
-                <Col span={18}>
+                <Col span={24}>
+                    <GroupBreakdown />
+                </Col>
+                <Col span={16}>
                     <ProgressC />
                 </Col>
-                <Col span={6}>
+                <Col span={8}>
                     <SSCard title="Average in a family" method={averageCarNumber} name='averageCars' />
                 </Col>
+
+
                 <Col span={24}>
                     <Breakdown />
                 </Col>

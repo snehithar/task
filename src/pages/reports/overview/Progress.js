@@ -26,7 +26,7 @@ function ProgressC() {
         })
     }, [targetables, fuel, drive])
     return (
-        <Card title={'Targetables : ' + targetables}>
+        <Card title={'Targetables : ' + (targetables|| '')}>
             {
                 progress_loading ? <Spin /> : (
                     <> <Row>
